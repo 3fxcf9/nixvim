@@ -2,14 +2,22 @@
   globals.mapleader = " ";
   globals.maplocalleader = ",";
 
-  extraConfigLua = ''vim.o.langmap = "rj,jr"'';
+  # extraConfigLua = ''vim.o.langmap = "rj,jr"'';
 
   keymaps = [
     # Keyboard layout related bindings
-    # {
-    #   key = "<C-j>";
-    #   action = "<C-r>";
-    # }
+    {
+      mode = ["n" "x" "v"];
+      key = "r";
+      action = "j";
+      options.remap = true;
+    }
+    {
+      mode = ["n" "x" "v"];
+      key = "j";
+      action = "r";
+      options.remap = true;
+    }
 
     # Navigate between the two most recent buffers
     {
@@ -200,6 +208,12 @@
       mode = "v";
       key = ">";
       action = ">gv";
+    }
+
+    # Code actions
+    {
+      key = "<leader>la";
+      action = "<cmd>lua vim.lsp.buf.code_action()<cr>";
     }
 
     # Exit terminal

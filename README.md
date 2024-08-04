@@ -44,11 +44,8 @@ Neovim is now configured and ready to be used !
 
 ## TODO
 
+- Fix motions keys in nvim-tree (swap j and r)
 - Lualine: colors, items
-- Telescope: add borders
+- Which-key: add borders
 - Folds
 - Plugins
-  - Hardtime
-  - Precognition
-  - Navic
-  - Notify

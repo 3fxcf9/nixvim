@@ -16,6 +16,7 @@
     ./plugins/lsp/figdet.nix
     ./plugins/lsp/conform.nix
     ./plugins/lsp/trouble.nix
+    ./plugins/lsp/barbecue.nix
 
     # Ui
     ./plugins/ui/alpha.nix
@@ -26,6 +27,7 @@
     ./plugins/ui/which-key.nix
     ./plugins/ui/zen-mode.nix
     ./plugins/ui/telescope.nix
+    ./plugins/ui/notify.nix
 
     # Git
     ./plugins/git/gitsigns.nix
@@ -38,6 +40,9 @@
     ./plugins/autopairs.nix
     ./plugins/todo-comments.nix
     ./plugins/markview.nix
+    ./plugins/vimtex.nix
+    ./plugins/hardtime.nix
+    ./plugins/precognition.nix
   ];
   luaLoader.enable = true;
 
