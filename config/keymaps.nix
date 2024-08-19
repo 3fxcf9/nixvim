@@ -5,20 +5,6 @@
   # extraConfigLua = ''vim.o.langmap = "rj,jr"'';
 
   keymaps = [
-    # Keyboard layout related bindings
-    {
-      mode = ["n" "x" "v"];
-      key = "r";
-      action = "j";
-      options.remap = true;
-    }
-    {
-      mode = ["n" "x" "v"];
-      key = "j";
-      action = "r";
-      options.remap = true;
-    }
-
     # Navigate between the two most recent buffers
     {
       key = "<leader>bb";
