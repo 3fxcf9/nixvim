@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "custom-latex-course-class": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1725101643,
+        "narHash": "sha256-+vwfzNaq0eDZRuZiKhaa5dQ0cBA1Q6LPA8WHnP3KxFw=",
+        "ref": "main",
+        "rev": "2ad70741dca8b19f3b733632ae518411b9a5a85a",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/3fxcf9/LaTeX-course-class.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/3fxcf9/LaTeX-course-class.git"
+      }
+    },
     "devshell": {
       "inputs": {
         "nixpkgs": [
@@ -280,6 +302,7 @@
     },
     "root": {
       "inputs": {
+        "custom-latex-course-class": "custom-latex-course-class",
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"

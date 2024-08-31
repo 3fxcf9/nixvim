@@ -5,6 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    # Custom latex class
+    custom-latex-course-class = {
+      url = "git+ssh://git@github.com/3fxcf9/LaTeX-course-class.git?ref=main&shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -32,7 +38,7 @@
           module = import ./config; # import the module directly
           # You can use `extraSpecialArgs` to pass additional arguments to your module files
           extraSpecialArgs = {
-            # inherit (inputs) foo;
+            inherit (inputs) custom-latex-course-class;
           };
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
