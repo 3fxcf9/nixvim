@@ -1,7 +1,9 @@
-{pkgs, ...}: {
+{...}: {
   plugins.vimtex = {
     enable = true;
-    settings.view_method = "zathura";
-    texlivePackage = pkgs.texlive.combined.scheme-full;
+    settings = {
+      compiler_method = "latexmk";
+      view_method = "zathura";
+    };
   };
 }

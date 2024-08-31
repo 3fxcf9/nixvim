@@ -44,8 +44,10 @@ Neovim is now configured and ready to be used !
 
 ## TODO
 
-- Fix motions keys in nvim-tree (swap j and r)
 - Lualine: colors, items
 - Which-key: add borders
 - Folds
-- Plugins
+- Treesitter-textobjects motions
+- Go to next/prev error
+- Show files with errors in nvim-tree
+- Rust: format
