@@ -7,10 +7,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1725101643,
-        "narHash": "sha256-+vwfzNaq0eDZRuZiKhaa5dQ0cBA1Q6LPA8WHnP3KxFw=",
+        "lastModified": 1725133514,
+        "narHash": "sha256-eOyWIhmlQDZkxhVi8R/WD6m8DpU7DedKLxy3PHcEIeo=",
         "ref": "main",
-        "rev": "2ad70741dca8b19f3b733632ae518411b9a5a85a",
+        "rev": "74b81451fab1da8f00d69bfb29399fd43faebe4f",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/3fxcf9/LaTeX-course-class.git"

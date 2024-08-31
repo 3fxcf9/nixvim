@@ -76,11 +76,13 @@
       bash = ["shellcheck" "shellharden" "shfmt"];
       json = ["jq"];
       rust = ["rustfmt"];
+      tex = ["latexindent"];
       "_" = ["trim_whitespace"];
     };
 
     # TODO: Remove ASAP (install in shells instead)
     formatters = {
+      latexindent = {prepend_args = ["-g" "/dev/null"];}; # Disable output to a log file
       alejandra = {command = "${lib.getExe pkgs.alejandra}";};
       jq = {command = "${lib.getExe pkgs.jq}";};
       prettierd = {command = "${lib.getExe pkgs.prettierd}";};
