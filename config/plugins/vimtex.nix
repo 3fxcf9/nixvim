@@ -17,4 +17,15 @@
       };
     };
   };
+  autoCmd = [
+    {
+      command = "set conceallevel=1";
+      event = [
+        "BufEnter"
+      ];
+      pattern = [
+        "*.tex"
+      ];
+    }
+  ];
 }

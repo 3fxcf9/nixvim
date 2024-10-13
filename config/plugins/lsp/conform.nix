@@ -30,67 +30,68 @@
 
   plugins.conform-nvim = {
     enable = true;
-    formatOnSave =
-      # lua
-      ''
-        function(bufnr)
-          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-            return
+    settings = {
+      notify_on_error = true;
+      format_on_save =
+        # lua
+        ''
+          function(bufnr)
+            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+              return
+            end
+
+            if slow_format_filetypes[vim.bo[bufnr].filetype] then
+              return
+            end
+
+            return { timeout_ms = 300, lsp_fallback = true }
+           end
+        '';
+
+      format_after_save =
+        # lua
+        ''
+          function(bufnr)
+            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+              return
+            end
+
+            if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+              return
+            end
+
+            return { lsp_fallback = true }
           end
+        '';
+      formatters_by_ft = {
+        html = ["prettierd"];
+        css = ["prettierd"];
+        javascript = ["prettierd"];
+        typescript = ["prettierd"];
+        python = ["black" "isort"];
+        lua = ["stylua"];
+        nix = ["alejandra"];
+        markdown = ["prettierd" "cbfmt"];
+        yaml = ["prettierd"];
+        bash = ["shellcheck" "shellharden" "shfmt"];
+        json = ["jq"];
+        rust = ["rustfmt"];
+        tex = ["latexindent"];
+        "_" = ["trim_whitespace"];
+      };
 
-          if slow_format_filetypes[vim.bo[bufnr].filetype] then
-            return
-          end
-
-          return { timeout_ms = 200, lsp_fallback = true }
-         end
-      '';
-
-    formatAfterSave =
-      # lua
-      ''
-        function(bufnr)
-          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-            return
-          end
-
-          if not slow_format_filetypes[vim.bo[bufnr].filetype] then
-            return
-          end
-
-          return { lsp_fallback = true }
-        end
-      '';
-
-    notifyOnError = true;
-    formattersByFt = {
-      html = ["prettierd"];
-      css = ["prettierd"];
-      javascript = ["prettierd"];
-      typescript = ["prettierd"];
-      python = ["black" "isort"];
-      lua = ["stylua"];
-      nix = ["alejandra"];
-      markdown = ["prettierd" "cbfmt"];
-      yaml = ["prettierd"];
-      bash = ["shellcheck" "shellharden" "shfmt"];
-      json = ["jq"];
-      rust = ["rustfmt"];
-      tex = ["latexindent"];
-      "_" = ["trim_whitespace"];
-    };
-
-    # TODO: Remove ASAP (install in shells instead)
-    formatters = {
-      latexindent = {prepend_args = ["-g" "/dev/null"];}; # Disable output to a log file
-      alejandra = {command = "${lib.getExe pkgs.alejandra}";};
-      jq = {command = "${lib.getExe pkgs.jq}";};
-      prettierd = {command = "${lib.getExe pkgs.prettierd}";};
-      stylua = {command = "${lib.getExe pkgs.stylua}";};
-      shellcheck = {command = "${lib.getExe pkgs.shellcheck}";};
-      shfmt = {command = "${lib.getExe pkgs.shfmt}";};
-      shellharden = {command = "${lib.getExe pkgs.shellharden}";};
-      cbfmt = {command = "${lib.getExe pkgs.cbfmt}";};
+      # TODO: Remove ASAP (install in shells instead)
+      formatters = {
+        latexindent = {prepend_args = ["-l" "-g" "/dev/null"];}; # Disable output to a log file
+        alejandra = {command = "${lib.getExe pkgs.alejandra}";};
+        jq = {command = "${lib.getExe pkgs.jq}";};
+        prettierd = {command = "${lib.getExe pkgs.prettierd}";};
+        stylua = {command = "${lib.getExe pkgs.stylua}";};
+        shellcheck = {command = "${lib.getExe pkgs.shellcheck}";};
+        shfmt = {command = "${lib.getExe pkgs.shfmt}";};
+        shellharden = {command = "${lib.getExe pkgs.shellharden}";};
+        cbfmt = {command = "${lib.getExe pkgs.cbfmt}";};
+      };
     };
   };
 }
