@@ -5,18 +5,52 @@
     lsp = {
       enable = true;
       servers = {
-        rust-analyzer = {
+        texlab = {
+          enable = true;
+          settings = {
+            texlab = {
+              build = {
+                args = [
+                  "-pdflatex"
+                  "-outdir=.build"
+                  "-verbose"
+                  "-file-line-error"
+                  "-synctex=1"
+                  "-interaction=nonstopmode"
+                  "%f"
+                ];
+                executable = "latexmk";
+                onSave = true;
+                forwardSearchAfter = false;
+              };
+              chktex = {
+                onEdit = true;
+                onOpenAndSave = true;
+              };
+              diagnosticsDelay = 100;
+              # diagnostics = {
+              #   ignoredPatterns = [".*may.*"];
+              # };
+              forwardSearch = {
+                executable = "zathura";
+                args = ["--synctex-forward" "%l:1:%f" "%p"];
+              };
+              latexFormatter = "latexindent";
+            };
+          };
+        };
+        rust_analyzer = {
           enable = true;
           installCargo = true;
           installRustc = true;
         };
-        tsserver.enable = true;
-        emmet-ls.enable = true;
+        ts_ls.enable = true;
+        emmet_ls.enable = true;
         html.enable = true;
         cssls.enable = true;
 
-        lua-ls.enable = true;
-        nil-ls.enable = true;
+        lua_ls.enable = true;
+        nil_ls.enable = true;
 
         marksman.enable = true;
         pyright.enable = true;

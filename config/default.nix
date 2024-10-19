@@ -40,7 +40,7 @@
     ./plugins/autopairs.nix
     ./plugins/todo-comments.nix
     ./plugins/markview.nix
-    ./plugins/vimtex.nix
+    # ./plugins/vimtex.nix
     ./plugins/hardtime.nix
     ./plugins/precognition.nix
   ];
