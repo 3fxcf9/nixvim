@@ -6,7 +6,7 @@
       enable = true;
       servers = {
         texlab = {
-          enable = true;
+          enable = false;
           settings = {
             texlab = {
               build = {

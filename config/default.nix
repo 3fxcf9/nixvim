@@ -10,6 +10,7 @@
 
     # Completion
     ./plugins/cmp/cmp.nix
+    ./plugins/luasnip
 
     # LSP
     ./plugins/lsp/lsp.nix
@@ -40,9 +41,10 @@
     ./plugins/autopairs.nix
     ./plugins/todo-comments.nix
     ./plugins/markview.nix
-    # ./plugins/vimtex.nix
+    ./plugins/vimtex.nix
     ./plugins/hardtime.nix
     ./plugins/precognition.nix
+    ./plugins/web-devicons.nix
   ];
   luaLoader.enable = true;
 

@@ -6,7 +6,11 @@
   extraConfigLuaPre =
     # lua
     ''
-      local slow_format_filetypes = {}
+      local slow_format_filetypes = {
+        latex = true,
+        tex = true,
+        python = true
+      }
 
       vim.api.nvim_create_user_command("FormatDisable", function(args)
          if args.bang then
@@ -44,7 +48,7 @@
               return
             end
 
-            return { timeout_ms = 300, lsp_fallback = true }
+            return { timeout_ms = 500, lsp_fallback = true }
            end
         '';
 

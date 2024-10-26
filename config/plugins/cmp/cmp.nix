@@ -49,20 +49,13 @@
         mapping = {
           "<C-t>" = ''
             function(fallback)
-              local line = vim.api.nvim_get_current_line()
-              if line:match("^%s*$") then
-                fallback()
-              elseif cmp.visible() then
+              if cmp.visible() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-              else
-                fallback()
               end
             end
           '';
           "<C-j>" = "cmp.mapping.select_next_item()";
           "<C-k>" = "cmp.mapping.select_prev_item()";
-          "<C-n>" = "cmp.mapping.select_next_item()";
-          "<C-p>" = "cmp.mapping.select_prev_item()";
           "<C-d>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
         };
@@ -122,21 +115,4 @@
       };
     };
   };
-  keymaps = [
-    {
-      mode = ["i" "n" "v"];
-      key = "<C-e>";
-      action = ''<cmd>lua require('luasnip').jump(1)<cr>'';
-      options = {
-        # remap = true;
-        desc = "Luasnip jump forward";
-      };
-    }
-    {
-      mode = ["i" "n" "v"];
-      key = "<C-s>";
-      action = ''<cmd>lua require('luasnip').jump(-1)<cr>'';
-      options.desc = "Luasnip jump backward";
-    }
-  ];
 }
