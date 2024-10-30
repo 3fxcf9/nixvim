@@ -38,7 +38,6 @@
     ./plugins/illuminate.nix
     ./plugins/colorizer.nix
     ./plugins/comment.nix
-    ./plugins/autopairs.nix
     ./plugins/todo-comments.nix
     ./plugins/markview.nix
     ./plugins/vimtex.nix

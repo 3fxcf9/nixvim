@@ -15,7 +15,7 @@
   keymaps = [
     {
       mode = ["i" "n" "v"];
-      key = "<C-n>";
+      key = "rt";
       action = ''<cmd>lua require('luasnip').jump(1)<cr>'';
       options = {
         remap = true;
