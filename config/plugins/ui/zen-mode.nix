@@ -5,7 +5,7 @@
     settings = {
       on_open = ''
         function()
-          require("gitsigns.actions").toggle_current_line_blame()
+          -- require("gitsigns.actions").toggle_current_line_blame()
           vim.opt.relativenumber = false
           vim.opt.signcolumn = "no"
           vim.opt.wrap = true

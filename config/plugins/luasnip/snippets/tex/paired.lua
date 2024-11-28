@@ -22,16 +22,16 @@ local get_visual = function(args, parent)
 	if #parent.snippet.env.LS_SELECT_RAW > 0 then
 		return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
 	else -- If LS_SELECT_RAW is empty, return a blank insert node
-		return sn(nil, i(1))
+		return sn(nil, i(1, ""))
 	end
 end
 
--- return {
--- 	require("luasnip").snippet(
--- 		{ trig = "test", snippetType = "autosnippet" },
--- 		{ require("luasnip").text_node("loaded !") }
--- 	),
--- }
+local function in_mathzone()
+	return true
+end
+local function not_in_mathzone()
+	return true
+end
 
 -- A logical OR of `line_begin` and the regTrig '[^%a]trig'
 function line_begin_or_non_letter(line_to_cursor, matched_trigger)
@@ -39,6 +39,8 @@ function line_begin_or_non_letter(line_to_cursor, matched_trigger)
 	local non_letter = line_to_cursor:sub(-(#matched_trigger + 1), -(#matched_trigger + 1)):match('[ :`=%{%(%["]')
 	return line_begin or non_letter
 end
+
+------------------------------------------------------------------------------
 
 return {
 	-- Paired parentheses
@@ -84,12 +86,6 @@ return {
 		}),
 		{ condition = line_begin_or_non_letter }
 	),
-	-- Today's date in YYYY-MM-DD (ISO 8601) format
-	s(
-		{ trig = "iso" },
-		{ f(get_date) }
-		-- {f(get_ISO_8601_date)}
-	),
 	-- Curly braces
 	s(
 		{ trig = "fds", snippetType = "autosnippet" },
@@ -114,12 +110,6 @@ return {
 			{ d(1, get_visual) }
 		)
 	),
-	-- Vim modeline
-	s(
-		{ trig = "vml", snippetType = "autosnippet" },
-		fmt([[ vim: set filetype={}: ]], { d(1, get_visual) }),
-		{ condition = line_begin }
-	),
 	-- em dash
 	s({ trig = "---", wordTrig = false }, { t("—") }),
 	-- Lorem ipsum
@@ -132,6 +122,4 @@ return {
 			{}
 		)
 	),
-	-- d.o.o.
-	s({ trig = "doo" }, { t("d.o.o.") }),
 }

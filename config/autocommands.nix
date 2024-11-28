@@ -1,10 +1,10 @@
 {
   autoCmd = [
     # Remove trailing whitespace on save
-    {
-      event = "BufWrite";
-      command = "%s/\\s\\+$//e";
-    }
+    # {
+    #   event = "BufWrite";
+    #   command = "%s/\\s\\+$//e";
+    # }
 
     # Handle performance on large files
     {
@@ -40,15 +40,6 @@
             end
           end
         '';
-    }
-
-    # Enable spellcheck for some filetypes
-    {
-      event = "FileType";
-      pattern = [
-        "markdown"
-      ];
-      command = "setlocal spell spelllang=en_us";
     }
   ];
 }

@@ -24,6 +24,20 @@
       options.desc = "Append line above the cursor";
     }
 
+    # Spelling
+    {
+      mode = "n";
+      key = "<leader>uS";
+      action = "<cmd>set nospell<cr>";
+      options.desc = "Disable spelling";
+    }
+    {
+      mode = "n";
+      key = "<leader>us";
+      action = "<cmd>set spell<cr>";
+      options.desc = "Enable spelling";
+    }
+
     # Better up/down motion (line wrap)
     {
       mode = ["n" "x"];

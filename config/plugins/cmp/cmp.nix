@@ -15,7 +15,7 @@
       enable = true;
       settings = {
         autoEnableSources = true;
-        experimental = {ghost_text = true;};
+        # experimental = {ghost_text = true;};
 
         completion.completeopt = "menu,menuone,noinsert";
 
@@ -36,7 +36,6 @@
           {name = "git";}
           {name = "nvim_lua";}
         ];
-
         window = {
           completion.__raw =
             # lua
@@ -47,10 +46,12 @@
         };
 
         mapping = {
-          "<C-t>" = ''
+          "<C-l>" = ''
             function(fallback)
               if cmp.visible() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+              else
+                fallback()
               end
             end
           '';

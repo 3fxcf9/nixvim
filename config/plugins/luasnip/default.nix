@@ -11,11 +11,26 @@
         paths = ./snippets;
       }
     ];
+    filetypeExtend = {
+      markdown = [
+        "latex"
+        "tex"
+      ];
+    };
   };
   keymaps = [
     {
       mode = ["i" "n" "v"];
-      key = "rt";
+      key = "<C-b>";
+      action = ''<cmd>lua require('luasnip').expand()<cr>'';
+      options = {
+        remap = true;
+        desc = "Luasnip expand";
+      };
+    }
+    {
+      mode = ["i" "n" "v"];
+      key = "<C-t>";
       action = ''<cmd>lua require('luasnip').jump(1)<cr>'';
       options = {
         remap = true;

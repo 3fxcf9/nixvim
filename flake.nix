@@ -11,6 +11,13 @@
       url = "git+ssh://git@github.com/3fxcf9/LaTeX-course-class.git?ref=main&shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Anki.nvim plugin
+    anki-nvim = {
+      url = "github:rareitems/anki.nvim";
+      # url = "github:rolf-stargate/ankifly.nvim";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -35,10 +42,9 @@
         nixvim' = nixvim.legacyPackages.${system};
         nixvimModule = {
           inherit pkgs;
-          module = import ./config; # import the module directly
-          # You can use `extraSpecialArgs` to pass additional arguments to your module files
+          module = import ./config;
           extraSpecialArgs = {
-            inherit (inputs) custom-latex-course-class;
+            inherit (inputs) custom-latex-course-class anki-nvim;
           };
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;

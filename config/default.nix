@@ -44,6 +44,8 @@
     ./plugins/hardtime.nix
     ./plugins/precognition.nix
     ./plugins/web-devicons.nix
+    ./plugins/autopairs.nix
+    ./plugins/anki.nix
   ];
   luaLoader.enable = true;
 
