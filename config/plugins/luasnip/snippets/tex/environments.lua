@@ -140,7 +140,7 @@ return {
 	),
 	-- SPLIT EQUATION
 	s(
-		{ trig = "ss", snippetType = "autosnippet" },
+		{ trig = "spp", snippetType = "autosnippet" },
 		fmta(
 			[[
         \begin{equation*}

@@ -239,7 +239,7 @@ return {
 	-- ABSOLUTE VALUE
 	s(
 		{ trig = "([^%a])aa", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-		fmta("<>\\abs{<>}", {
+		fmta("<>|<>|", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -272,7 +272,7 @@ return {
 	),
 	-- LOGARITHM WITH BASE SUBSCRIPT
 	s(
-		{ trig = "([^%a%\\])ll", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+		{ trig = "([^%a%\\])lg", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
 		fmta("<>\\log_{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
@@ -284,7 +284,7 @@ return {
 	-- DERIVATIVE with denominator only
 	s(
 		{ trig = "([^%a])dV", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-		fmta("<>\\dvOne{<>}", {
+		fmta("<>\\dv{}{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -320,7 +320,7 @@ return {
 	-- PARTIAL DERIVATIVE with denominator only
 	s(
 		{ trig = "([^%a])pV", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-		fmta("<>\\pdvOne{<>}", {
+		fmta("<>\\pdv{}{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -417,9 +417,17 @@ return {
 	-- BEGIN STATIC SNIPPETS
 	--
 
-	-- DIFFERENTIAL, i.e. \diff
+	-- FORALL, i.e. \forall
+	s({ trig = "ll", priority = 2000, snippetType = "autosnippet" }, {
+		t("\\forall "),
+	}, { condition = in_mathzone }),
+	-- EXISTS, i.e. \exists
+	s({ trig = "ss", priority = 2000, snippetType = "autosnippet" }, {
+		t("\\exists "),
+	}, { condition = in_mathzone }),
+	-- DIFFERENTIAL, i.e. \mathrm{d}
 	s({ trig = "dd", priority = 2000, snippetType = "autosnippet" }, {
-		t("\\dd"),
+		t("\\dd "),
 	}, { condition = in_mathzone }),
 	-- DIVERGENCE OPERATOR, i.e. \divergence
 	s({ trig = "DI", snippetType = "autosnippet" }, {
@@ -431,15 +439,15 @@ return {
 	}, { condition = in_mathzone }),
 	-- PARALLEL SYMBOL, i.e. \parallel
 	s({ trig = "||", snippetType = "autosnippet" }, {
-		t("\\parallel"),
+		t("\\parallel "),
 	}),
 	-- CDOTS, i.e. \cdots
 	s({ trig = "cdd", snippetType = "autosnippet" }, {
-		t("\\cdots"),
+		t("\\cdots "),
 	}),
 	-- LDOTS, i.e. \ldots
 	s({ trig = "ldd", snippetType = "autosnippet" }, {
-		t("\\ldots"),
+		t("\\ldots "),
 	}),
 	-- EQUIV, i.e. \equiv
 	s({ trig = "evv", snippetType = "autosnippet" }, {
@@ -461,9 +469,9 @@ return {
 	s({ trig = "pt", snippetType = "autosnippet" }, {
 		t("\\propto "),
 	}, { condition = in_mathzone }),
-	-- COLON, i.e. \colon
-	s({ trig = "::", snippetType = "autosnippet" }, {
-		t("\\colon "),
+	-- IFF, i.e. \iff
+	s({ trig = "<>", snippetType = "autosnippet" }, {
+		t("\\iff "),
 	}),
 	-- IMPLIES, i.e. \implies
 	s({ trig = ">>", snippetType = "autosnippet" }, {
