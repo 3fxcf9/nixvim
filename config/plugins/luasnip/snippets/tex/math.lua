@@ -128,11 +128,22 @@ return {
 	-- MINUS ONE SUPERSCRIPT SHORTCUT
 	s(
 		{ trig = "([%a%)%]%}])11", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-		fmta("<>_{<>}", {
+		fmta("<>^{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
 			t("-1"),
+		}),
+		{ condition = in_mathzone }
+	),
+	-- COMPLEMENT SUPERSCRIPT
+	s(
+		{ trig = "([%a%)%]%}])TT", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<><>", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			t("\\transp"),
 		}),
 		{ condition = in_mathzone }
 	),

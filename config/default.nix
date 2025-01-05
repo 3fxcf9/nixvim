@@ -34,7 +34,6 @@
     ./plugins/git/gitsigns.nix
 
     ./plugins/treesitter.nix
-    ./plugins/flash.nix
     ./plugins/illuminate.nix
     ./plugins/colorizer.nix
     ./plugins/comment.nix
@@ -45,7 +44,7 @@
     ./plugins/precognition.nix
     ./plugins/web-devicons.nix
     ./plugins/autopairs.nix
-    ./plugins/anki.nix
+    # ./plugins/anki.nix
   ];
   luaLoader.enable = true;
 

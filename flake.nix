@@ -13,11 +13,11 @@
     };
 
     # Anki.nvim plugin
-    anki-nvim = {
-      url = "github:rareitems/anki.nvim";
-      # url = "github:rolf-stargate/ankifly.nvim";
-      flake = false;
-    };
+    # anki-nvim = {
+    #   url = "github:rareitems/anki.nvim";
+    #   # url = "github:rolf-stargate/ankifly.nvim";
+    #   flake = false;
+    # };
   };
 
   outputs = {

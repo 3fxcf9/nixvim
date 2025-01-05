@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   plugins = {
     treesitter = {
       enable = true;
@@ -35,7 +35,8 @@
           "at" = "@comment.outer";
         };
       };
-      move = { # TODO: Change keybindings
+      move = {
+        # TODO: Change keybindings
         enable = true;
         gotoNextStart = {
           "]m" = "@function.outer";
@@ -56,8 +57,8 @@
       };
       swap = {
         enable = true;
-        swapNext = { "<leader>a" = "@parameters.inner"; };
-        swapPrevious = { "<leader>A" = "@parameter.outer"; };
+        swapNext = {"<leader>a" = "@parameters.inner";};
+        swapPrevious = {"<leader>A" = "@parameter.outer";};
       };
     };
   };

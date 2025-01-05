@@ -7,6 +7,7 @@
     view = {
       width = 35;
       relativenumber = true;
+      side = "right";
     };
     git.ignore = false;
   };
