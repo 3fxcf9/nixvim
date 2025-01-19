@@ -75,7 +75,8 @@
         python = ["black" "isort"];
         lua = ["stylua"];
         nix = ["alejandra"];
-        markdown = ["prettierd" "cbfmt"];
+        # markdown = ["prettierd" "cbfmt"];
+        markdown = ["prettierd"];
         yaml = ["prettierd"];
         bash = ["shellcheck" "shellharden" "shfmt"];
         json = ["jq"];
