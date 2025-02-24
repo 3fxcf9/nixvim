@@ -47,8 +47,4 @@
     # ./plugins/anki.nix
   ];
   luaLoader.enable = true;
-
-  # Highlight and remove extra white spaces
-  highlight.ExtraWhitespace.bg = "#f7768e";
-  match.ExtraWhitespace = "\\s\\+$";
 }

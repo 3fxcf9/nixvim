@@ -250,7 +250,7 @@ return {
 	-- ABSOLUTE VALUE
 	s(
 		{ trig = "([^%a])aa", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-		fmta("<>|<>|", {
+		fmta("<>\\left|<>\\right|", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),

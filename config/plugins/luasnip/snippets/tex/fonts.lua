@@ -37,7 +37,7 @@ end
 return {
 	-- TYPEWRITER i.e. \texttt
 	s(
-		{ trig = "([^%a])tt", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
+		{ trig = "([^%a])txtt", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
 		fmta("<>\\texttt{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
@@ -105,7 +105,7 @@ return {
 	),
 	-- REGULAR TEXT i.e. \text (in math environments)
 	s(
-		{ trig = "([^%a])tee", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		{ trig = "([^%a])tt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
 		fmta("<>\\text{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]

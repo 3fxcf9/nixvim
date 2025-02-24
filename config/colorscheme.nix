@@ -16,15 +16,27 @@
           hl.IlluminatedWordWrite.bg = c.fg_gutter
           end
       '';
+      lualine_bold = true;
       styles = {
+        comments.italic = true;
+        keywords.italic = true;
         floats = "transparent";
         sidebars = "transparent";
       };
     };
   };
-}
 
-/* hl.TelescopeNormal = {
+  highlightOverride.LspInlayHint = {
+    bg = "NONE";
+    link = "Comment";
+  };
+
+  # Highlight and remove extra white spaces
+  highlight.ExtraWhitespace.bg = "#f7768e";
+  match.ExtraWhitespace = "\\s\\+$";
+}
+/*
+   hl.TelescopeNormal = {
     bg = c.bg_dark,
     fg = c.fg_dark,
 }
@@ -50,4 +62,6 @@ hl.TelescopePreviewTitle = {
 hl.TelescopeResultsTitle = {
     bg = c.bg_dark,
     fg = c.bg_dark,
-} */
+}
+*/
+

@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins = {
     lsp-lines = {enable = true;};
     lsp-format = {enable = true;};
@@ -59,6 +59,11 @@
         yamlls.enable = true;
 
         bashls.enable = true;
+
+        ocamllsp = {
+          enable = true;
+          package = pkgs.ocamlPackages.ocaml-lsp;
+        };
       };
 
       keymaps = {
@@ -133,4 +138,16 @@
       border = _border
     }
   '';
+
+  keymaps = [
+    {
+      mode = ["n"];
+      key = "<leader>lH";
+      action = ''<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })<cr>'';
+      options = {
+        remap = true;
+        desc = "Toggle inlay hints";
+      };
+    }
+  ];
 }

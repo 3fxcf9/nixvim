@@ -14,4 +14,9 @@
       };
     }
   ];
+
+  highlight.GitSignsCurrentLineBlame = {
+    link = "Comment";
+    italic = true;
+  };
 }
