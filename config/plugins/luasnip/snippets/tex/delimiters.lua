@@ -81,4 +81,13 @@ return {
 		}),
 		{ condition = _G.in_mathzone }
 	),
+	-- UNDERBRACE
+	s(
+		{ trig = "uu", snippetType = "autosnippet" },
+		fmta("\\underbrace{<>}_{<>}", {
+			d(1, get_visual),
+			i(2),
+		}),
+		{ condition = _G.in_mathzone }
+	),
 }

@@ -29,6 +29,17 @@ end
 ------------------------------------------------------------------------------
 
 return {
+	-- REGULAR TEXT i.e. \text (in math environments)
+	s(
+		{ trig = "([^%a])tt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<>\\text{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = _G.in_mathzone }
+	),
 	-- TYPEWRITER i.e. \texttt
 	s(
 		{ trig = "([^%a])txtt", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
@@ -96,16 +107,5 @@ return {
 			end),
 			d(1, get_visual),
 		})
-	),
-	-- REGULAR TEXT i.e. \text (in math environments)
-	s(
-		{ trig = "([^%a])tt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-		fmta("<>\\text{<>}", {
-			f(function(_, snip)
-				return snip.captures[1]
-			end),
-			d(1, get_visual),
-		}),
-		{ condition = _G.in_mathzone }
 	),
 }

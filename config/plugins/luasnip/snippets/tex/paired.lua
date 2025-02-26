@@ -104,7 +104,7 @@ return {
 		)
 	),
 	-- em dash
-	s({ trig = "---", wordTrig = false }, { t("—") }),
+	s({ trig = "~-", wordTrig = false }, { t("—") }),
 	-- Lorem ipsum
 	s(
 		{ trig = "lipsum" },

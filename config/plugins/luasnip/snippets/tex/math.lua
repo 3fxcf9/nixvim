@@ -207,7 +207,7 @@ return {
 	-- 	}),
 	-- 	{ condition = _G.in_mathzone }
 	-- ),
-	-- MATRIX, i.e. \vec
+	-- MATRIX, i.e. \mat
 	s(
 		{ trig = "([^%a])mt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
 		fmta("<>\\mat{<>}", {
@@ -241,10 +241,10 @@ return {
 		}),
 		{ condition = _G.in_mathzone }
 	),
-	-- ABSOLUTE VALUE
+	-- ABSOLUTE VALUE, i.e \abs
 	s(
 		{ trig = "([^%a])aa", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-		fmta("<>\\left|<>\\right|", {
+		fmta("<>\\abs{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -381,6 +381,17 @@ return {
 		}),
 		{ condition = _G.in_mathzone }
 	),
+	-- INTEGRAL with only lower limit
+	s(
+		{ trig = "([^%a])intT", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+		fmta("<>\\int_{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			i(1),
+		}),
+		{ condition = _G.in_mathzone }
+	),
 	-- INTEGRAL with upper and lower limit
 	s(
 		{ trig = "([^%a])intt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
@@ -481,6 +492,10 @@ return {
 	-- IMPLIES, i.e. \implies
 	s({ trig = ">>", snippetType = "autosnippet" }, {
 		t("\\implies "),
+	}),
+	-- IMPLIEDBY, i.e. \impliedby
+	s({ trig = "<<", snippetType = "autosnippet" }, {
+		t("\\impliedby "),
 	}),
 	-- DOT PRODUCT, i.e. \cdot
 	s({ trig = ",.", snippetType = "autosnippet" }, {

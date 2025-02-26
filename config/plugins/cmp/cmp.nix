@@ -47,12 +47,12 @@
         };
 
         mapping = {
-          "<Tab>" = ''
+          "<C-t>" = ''
             function(fallback)
-              if cmp.visible() then
+              if require("luasnip").expandable() then
+                require("luasnip").expand()
+              elseif cmp.visible() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-              elseif luasnip.locally_jumpable(1) then
-                luasnip.jump(1)
               else
                 fallback()
               end
@@ -67,9 +67,9 @@
 
       cmdline = {
         "/" = {
-          # mapping = {
-          #   __raw = "cmp.mapping.preset.cmdline()";
-          # };
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
           sources = [
             {
               name = "buffer";
@@ -77,9 +77,9 @@
           ];
         };
         ":" = {
-          # mapping = {
-          #   __raw = "cmp.mapping.preset.cmdline()";
-          # };
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
           sources = [
             {
               name = "path";

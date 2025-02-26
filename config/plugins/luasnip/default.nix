@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       enable_autosnippets = true;
-      store_selection_keys = "<Tab>";
+      store_selection_keys = "<C-s>";
       update_events = "TextChanged,TextChangedI";
     };
     fromLua = [
@@ -20,8 +20,8 @@
   };
   keymaps = [
     {
-      mode = ["i" "n" "v"];
-      key = "<C-b>";
+      mode = ["v"];
+      key = "<C-t>";
       action = ''<cmd>lua require('luasnip').expand()<cr>'';
       options = {
         remap = true;
@@ -30,10 +30,10 @@
     }
     {
       mode = ["i" "n" "v"];
-      key = "<C-t>";
+      key = "<Tab>";
       action = ''<cmd>lua require('luasnip').jump(1)<cr>'';
       options = {
-        remap = true;
+        remap = false;
         desc = "Luasnip jump forward";
       };
     }

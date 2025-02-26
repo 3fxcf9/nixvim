@@ -39,6 +39,12 @@ return {
 			i(1),
 		})
 	),
+	s(
+		{ trig = "qdT", snippetType = "autosnippet" },
+		fmta([[\quad\text{<>}\quad]], {
+			i(1),
+		})
+	),
 	s({ trig = "npp", snippetType = "autosnippet" }, {
 		t({ "\\newpage", "" }),
 	}, { condition = line_begin }),

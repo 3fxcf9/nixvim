@@ -67,7 +67,7 @@ return {
 	),
 	-- ENVIRONMENT WITH ONE EXTRA ARGUMENT
 	s(
-		{ trig = "beg2", snippetType = "autosnippet" },
+		{ trig = "bbeg", snippetType = "autosnippet" },
 		fmta(
 			[[
         \begin{<>}{<>}
@@ -85,7 +85,7 @@ return {
 	),
 	-- ENVIRONMENT WITH TWO EXTRA ARGUMENTS
 	s(
-		{ trig = "beg3", snippetType = "autosnippet" },
+		{ trig = "bbbeg", snippetType = "autosnippet" },
 		fmta(
 			[[
         \begin{<>}{<>}{<>}
@@ -196,19 +196,8 @@ return {
 	-- ITEM
 	s({ trig = "ii", snippetType = "autosnippet" }, {
 		t("\\item "),
-		-- f(function()
-		-- 	return " "
-		-- end, {}),
 	}, {
 		condition = line_begin,
-		callbacks = { -- Prevent indentation
-			[0] = {
-				[events.enter] = function()
-					vim.cmd("normal! ==")
-					vim.cmd("normal! A")
-				end,
-			},
-		},
 	}),
 	-- FIGURE
 	s(

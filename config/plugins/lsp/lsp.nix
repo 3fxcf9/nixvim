@@ -99,15 +99,15 @@
           };
         };
         diagnostic = {
-          "<leader>ld" = {
+          "<leader>lx" = {
             action = "open_float";
             desc = "Line Diagnostics";
           };
-          "[d" = {
+          "[x" = {
             action = "goto_next";
             desc = "Next Diagnostic";
           };
-          "]d" = {
+          "]x" = {
             action = "goto_prev";
             desc = "Previous Diagnostic";
           };
