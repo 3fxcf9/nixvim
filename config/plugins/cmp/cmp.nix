@@ -9,12 +9,13 @@
 
     cmp-buffer.enable = true;
     cmp_luasnip.enable = true;
-    friendly-snippets.enable = true;
+    cmp-treesitter.enable = true;
+    # friendly-snippets.enable = true;
 
     cmp = {
       enable = true;
       settings = {
-        autoEnableSources = true;
+        autoEnableSources = false;
         # experimental = {ghost_text = true;};
 
         completion.completeopt = "menu,menuone,noinsert";
@@ -46,10 +47,12 @@
         };
 
         mapping = {
-          "<C-l>" = ''
+          "<Tab>" = ''
             function(fallback)
               if cmp.visible() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+              elseif luasnip.locally_jumpable(1) then
+                luasnip.jump(1)
               else
                 fallback()
               end
@@ -57,16 +60,16 @@
           '';
           "<C-j>" = "cmp.mapping.select_next_item()";
           "<C-k>" = "cmp.mapping.select_prev_item()";
-          "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<Up>" = "cmp.mapping.scroll_docs(-4)";
+          "<Down>" = "cmp.mapping.scroll_docs(4)";
         };
       };
 
       cmdline = {
         "/" = {
-          mapping = {
-            __raw = "cmp.mapping.preset.cmdline()";
-          };
+          # mapping = {
+          #   __raw = "cmp.mapping.preset.cmdline()";
+          # };
           sources = [
             {
               name = "buffer";
@@ -74,9 +77,9 @@
           ];
         };
         ":" = {
-          mapping = {
-            __raw = "cmp.mapping.preset.cmdline()";
-          };
+          # mapping = {
+          #   __raw = "cmp.mapping.preset.cmdline()";
+          # };
           sources = [
             {
               name = "path";

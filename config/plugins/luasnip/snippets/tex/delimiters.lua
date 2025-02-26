@@ -25,13 +25,6 @@ local get_visual = function(args, parent)
 		return sn(nil, i(1, ""))
 	end
 end
-
-local function in_mathzone()
-	return true
-end
-local function not_in_mathzone()
-	return true
-end
 ------------------------------------------------------------------------------
 
 return {
@@ -41,7 +34,7 @@ return {
 		fmta("\\left(<>\\right)", {
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- LEFT/RIGHT SQUARE BRACES
 	s(
@@ -49,7 +42,7 @@ return {
 		fmta("\\left[<>\\right]", {
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- LEFT/RIGHT CURLY BRACES
 	s(
@@ -62,7 +55,7 @@ return {
 		fmta("\\big(<>\\big)", {
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- BIG SQUARE BRACES
 	s(
@@ -70,7 +63,7 @@ return {
 		fmta("\\big[<>\\big]", {
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- BIG CURLY BRACES
 	s(
@@ -78,7 +71,7 @@ return {
 		fmta("\\big\\{<>\\big\\}", {
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- ESCAPED CURLY BRACES
 	s(
@@ -86,6 +79,6 @@ return {
 		fmta("\\{<>\\}", {
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 }

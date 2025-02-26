@@ -26,13 +26,6 @@ local get_visual = function(args, parent)
 	end
 end
 
-local function in_mathzone()
-	return true
-end
-local function not_in_mathzone()
-	return true
-end
-
 -- A logical OR of `line_begin` and the regTrig '[^%a]trig'
 function line_begin_or_non_letter(line_to_cursor, matched_trigger)
 	local line_begin = line_to_cursor:sub(1, -(#matched_trigger + 1)):match("^%s*$")

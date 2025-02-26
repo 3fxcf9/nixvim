@@ -26,12 +26,6 @@ local get_visual = function(args, parent)
 	end
 end
 
-local function in_mathzone()
-	return true
-end
-local function not_in_mathzone()
-	return true
-end
 ------------------------------------------------------------------------------
 
 return {
@@ -44,7 +38,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = not_in_mathzone }
+		{ condition = _G.not_in_mathzone }
 	),
 	-- ITALIC i.e. \textit
 	s(
@@ -112,6 +106,6 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 }

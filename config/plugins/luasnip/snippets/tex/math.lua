@@ -26,12 +26,6 @@ local get_visual = function(args, parent)
 	end
 end
 
-local function in_mathzone()
-	return true
-end
-local function not_in_mathzone()
-	return true
-end
 ------------------------------------------------------------------------------
 
 return {
@@ -44,7 +38,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- SUBSCRIPT
 	s(
@@ -55,7 +49,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- SUBSCRIPT AND SUPERSCRIPT
 	s(
@@ -67,13 +61,13 @@ return {
 			i(1),
 			i(2),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- TEXT SUBSCRIPT
 	s(
 		{ trig = "sd", snippetType = "autosnippet", wordTrig = false },
 		fmta("_{\\mathrm{<>}}", { d(1, get_visual) }),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- SUPERSCRIPT SHORTCUT
 	-- Places the first alphanumeric character after the trigger into a superscript.
@@ -87,7 +81,7 @@ return {
 				return snip.captures[2]
 			end),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- SUBSCRIPT SHORTCUT
 	-- Places the first alphanumeric character after the trigger into a subscript.
@@ -101,7 +95,7 @@ return {
 				return snip.captures[2]
 			end),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- EULER'S NUMBER SUPERSCRIPT SHORTCUT
 	s(
@@ -112,7 +106,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- ZERO SUBSCRIPT SHORTCUT
 	s(
@@ -123,7 +117,7 @@ return {
 			end),
 			t("0"),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- MINUS ONE SUPERSCRIPT SHORTCUT
 	s(
@@ -134,7 +128,7 @@ return {
 			end),
 			t("-1"),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- COMPLEMENT SUPERSCRIPT
 	s(
@@ -145,7 +139,7 @@ return {
 			end),
 			t("\\transp"),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- PLUS SUPERSCRIPT SHORTCUT
 	-- s(
@@ -156,7 +150,7 @@ return {
 	-- 		end),
 	-- 		t("+"),
 	-- 	}),
-	-- 	{ condition = in_mathzone }
+	-- 	{ condition = _G.in_mathzone }
 	-- ),
 	-- COMPLEMENT SUPERSCRIPT
 	-- s(
@@ -167,7 +161,7 @@ return {
 	-- 		end),
 	-- 		t("\\complement"),
 	-- 	}),
-	-- 	{ condition = in_mathzone }
+	-- 	{ condition = _G.in_mathzone }
 	-- ),
 	-- CONJUGATE (STAR) SUPERSCRIPT SHORTCUT
 	-- s(
@@ -178,7 +172,7 @@ return {
 	-- 		end),
 	-- 		t("*"),
 	-- 	}),
-	-- 	{ condition = in_mathzone }
+	-- 	{ condition = _G.in_mathzone }
 	-- ),
 	-- VECTOR, i.e. \vec
 	s(
@@ -189,7 +183,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- DEFAULT UNIT VECTOR WITH SUBSCRIPT, i.e. \unitvector_{}
 	s(
@@ -200,7 +194,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- UNIT VECTOR WITH HAT, i.e. \uvec{}
 	-- s(
@@ -211,7 +205,7 @@ return {
 	-- 		end),
 	-- 		d(1, get_visual),
 	-- 	}),
-	-- 	{ condition = in_mathzone }
+	-- 	{ condition = _G.in_mathzone }
 	-- ),
 	-- MATRIX, i.e. \vec
 	s(
@@ -222,7 +216,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- FRACTION
 	s(
@@ -234,7 +228,7 @@ return {
 			d(1, get_visual),
 			i(2),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- ANGLE
 	s(
@@ -245,7 +239,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- ABSOLUTE VALUE
 	s(
@@ -256,7 +250,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- SQUARE ROOT
 	s(
@@ -267,7 +261,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- BINOMIAL SYMBOL
 	s(
@@ -279,7 +273,7 @@ return {
 			i(1),
 			i(2),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- LOGARITHM WITH BASE SUBSCRIPT
 	s(
@@ -290,7 +284,7 @@ return {
 			end),
 			i(1),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- DERIVATIVE with denominator only
 	s(
@@ -301,7 +295,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- DERIVATIVE with numerator and denominator
 	s(
@@ -313,7 +307,7 @@ return {
 			i(1),
 			i(2),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- DERIVATIVE with numerator, denominator, and higher-order argument
 	s(
@@ -326,7 +320,7 @@ return {
 			i(2),
 			i(3),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- PARTIAL DERIVATIVE with denominator only
 	s(
@@ -337,7 +331,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- PARTIAL DERIVATIVE with numerator and denominator
 	s(
@@ -349,7 +343,7 @@ return {
 			i(1),
 			i(2),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- PARTIAL DERIVATIVE with numerator, denominator, and higher-order argument
 	s(
@@ -362,7 +356,7 @@ return {
 			i(2),
 			i(3),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- SUM with lower limit
 	s(
@@ -373,7 +367,7 @@ return {
 			end),
 			i(1),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- SUM with upper and lower limit
 	s(
@@ -385,7 +379,7 @@ return {
 			i(1),
 			i(2),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- INTEGRAL with upper and lower limit
 	s(
@@ -397,7 +391,7 @@ return {
 			i(1),
 			i(2),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- INTEGRAL from positive to negative infinity
 	s(
@@ -407,7 +401,7 @@ return {
 				return snip.captures[1]
 			end),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	-- INFTY
 	s({ trig = "inff", snippetType = "autosnippet" }, {
@@ -422,7 +416,7 @@ return {
 			end),
 			d(1, get_visual),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 	--
 	-- BEGIN STATIC SNIPPETS
@@ -431,23 +425,23 @@ return {
 	-- FORALL, i.e. \forall
 	s({ trig = "ll", priority = 2000, snippetType = "autosnippet" }, {
 		t("\\forall "),
-	}, { condition = in_mathzone }),
+	}, { condition = _G.in_mathzone }),
 	-- EXISTS, i.e. \exists
 	s({ trig = "ss", priority = 2000, snippetType = "autosnippet" }, {
 		t("\\exists "),
-	}, { condition = in_mathzone }),
+	}, { condition = _G.in_mathzone }),
 	-- DIFFERENTIAL, i.e. \mathrm{d}
 	s({ trig = "dd", priority = 2000, snippetType = "autosnippet" }, {
 		t("\\dd "),
-	}, { condition = in_mathzone }),
+	}, { condition = _G.in_mathzone }),
 	-- DIVERGENCE OPERATOR, i.e. \divergence
 	s({ trig = "DI", snippetType = "autosnippet" }, {
 		t("\\div "),
-	}, { condition = in_mathzone }),
+	}, { condition = _G.in_mathzone }),
 	-- LAPLACIAN OPERATOR, i.e. \laplacian
 	s({ trig = "laa", snippetType = "autosnippet" }, {
 		t("\\laplacian "),
-	}, { condition = in_mathzone }),
+	}, { condition = _G.in_mathzone }),
 	-- PARALLEL SYMBOL, i.e. \parallel
 	s({ trig = "||", snippetType = "autosnippet" }, {
 		t("\\parallel "),
@@ -475,11 +469,11 @@ return {
 	-- APPROX, i.e. \approx
 	s({ trig = "px", snippetType = "autosnippet" }, {
 		t("\\approx "),
-	}, { condition = in_mathzone }),
+	}, { condition = _G.in_mathzone }),
 	-- PROPTO, i.e. \propto
 	s({ trig = "pt", snippetType = "autosnippet" }, {
 		t("\\propto "),
-	}, { condition = in_mathzone }),
+	}, { condition = _G.in_mathzone }),
 	-- IFF, i.e. \iff
 	s({ trig = "<>", snippetType = "autosnippet" }, {
 		t("\\iff "),
@@ -505,6 +499,6 @@ return {
 			i(3, "variable"),
 			i(4, "function"),
 		}),
-		{ condition = in_mathzone }
+		{ condition = _G.in_mathzone }
 	),
 }
