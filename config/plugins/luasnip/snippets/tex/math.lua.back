@@ -1,3 +1,4 @@
+
 ---@diagnostic disable: unused-local
 
 local ls = require("luasnip")
@@ -295,7 +296,7 @@ return {
 	),
 	-- INTERVALS
 	s(
-		{ trig = "([^%a])oo", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		{ trig = "([^%a])roo", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
 		fmta("<>\\oo{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
@@ -305,7 +306,7 @@ return {
 		{ condition = _G.in_mathzone }
 	),
 	s(
-		{ trig = "([^%a])of", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		{ trig = "([^%a])roc", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
 		fmta("<>\\oc{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
@@ -315,7 +316,7 @@ return {
 		{ condition = _G.in_mathzone }
 	),
 	s(
-		{ trig = "([^%a])co", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		{ trig = "([^%a])rco", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
 		fmta("<>\\co{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
@@ -325,7 +326,7 @@ return {
 		{ condition = _G.in_mathzone }
 	),
 	s(
-		{ trig = "([^%a])cc", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		{ trig = "([^%a])rcc", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
 		fmta("<>\\cc{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
@@ -334,6 +335,68 @@ return {
 		}),
 		{ condition = _G.in_mathzone }
 	),
+	s(
+		{ trig = "([^%a])ioo", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<>\\ioo{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = _G.in_mathzone }
+	),
+	s(
+		{ trig = "([^%a])ioc", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<>\\ioc{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = _G.in_mathzone }
+	),
+	s(
+		{ trig = "([^%a])ico", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<>\\ico{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = _G.in_mathzone }
+	),
+	s(
+		{ trig = "([^%a])icc", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<>\\icc{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = _G.in_mathzone }
+	),
+	-- UNDERSET SIM
+	s(
+		{ trig = "([^%a])usim", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<>\\usim{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = _G.in_mathzone }
+	),
+	s(
+		{ trig = "([^%a])infsim", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+		fmta("<>\\usim{+\\infty} ", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = _G.in_mathzone }
+	),
+
 	-- TILDE
 	s(
 		{ trig = "([^%a])tll", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
@@ -557,10 +620,6 @@ return {
 	s({ trig = "ss", priority = 2000, snippetType = "autosnippet" }, {
 		t("\\exists "),
 	}, { condition = _G.in_mathzone }),
-	-- PARTIAL DIFFERENTIAL, i.e. \partial
-	s({ trig = "pp", priority = 2000, snippetType = "autosnippet" }, {
-		t("\\partial "),
-	}, { condition = _G.in_mathzone }),
 	-- DIFFERENTIAL, i.e. \mathrm{d}
 	s({ trig = "dd", priority = 2000, snippetType = "autosnippet" }, {
 		t("\\dd "),
@@ -717,23 +776,6 @@ return {
 		{ trig = "[dD]im", regTrig = true, snippetType = "autosnippet" },
 		fmta("\\dim_{<>} ", {
 			i(1),
-		}),
-		{ condition = _G.in_mathzone }
-	),
-	-- DET
-	s(
-		{ trig = "[dD]et", regTrig = true, snippetType = "autosnippet" },
-		fmta("\\det_{<>} ", {
-			i(1),
-		}),
-		{ condition = _G.in_mathzone }
-	),
-	-- SCALAR PRODUCT
-	s(
-		{ trig = "scc", regTrig = true, snippetType = "autosnippet" },
-		fmta("\\scalar{<>}{<>} ", {
-			i(1, "\\cdot"),
-			i(2, "\\cdot"),
 		}),
 		{ condition = _G.in_mathzone }
 	),

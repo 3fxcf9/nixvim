@@ -4,7 +4,14 @@
       enable = true;
       settings = {
         auto_install = false;
-        ensure_installed = "all";
+        ensure_installed = [
+          "git_config"
+          "git_rebase"
+          "gitattributes"
+          "gitcommit"
+          "gitignore"
+          "v"
+        ];
         highlight = {
           enable = true;
           additional_vim_regex_highlighting = true;
@@ -13,7 +20,24 @@
       };
       folding = false;
       nixvimInjections = true;
-      grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+      # grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        bash
+        json
+        yaml
+        lua
+        make
+        markdown
+        nix
+        regex
+        toml
+        vim
+        vimdoc
+        rust
+        html
+        css
+        javascript
+      ];
     };
 
     treesitter-textobjects = {

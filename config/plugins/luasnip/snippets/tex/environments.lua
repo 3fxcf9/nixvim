@@ -17,6 +17,7 @@ local fmta = require("luasnip.extras.fmt").fmta
 local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 local postfix = require("luasnip.extras.postfix").postfix
+local line_begin = require("luasnip.extras.conditions.expand").line_begin
 
 local get_visual = function(args, parent)
 	if #parent.snippet.env.LS_SELECT_RAW > 0 then
@@ -62,8 +63,7 @@ return {
 				d(2, get_visual),
 				rep(1),
 			}
-		),
-		{ condition = line_begin }
+		)
 	),
 	-- ENVIRONMENT WITH ONE EXTRA ARGUMENT
 	s(
@@ -110,6 +110,23 @@ return {
         \[
             <>
         \]
+      ]],
+			{
+				i(1),
+			}
+		),
+		{ condition = line_begin }
+	),
+	-- MATH BLOCK for markdown
+	s(
+		{ trig = "ddm", snippetType = "autosnippet" },
+		fmta(
+			[[
+
+        $$
+            <>
+        $$
+
       ]],
 			{
 				i(1),

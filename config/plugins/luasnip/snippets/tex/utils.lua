@@ -35,13 +35,13 @@ return {
 	}),
 	s(
 		{ trig = "qdt", snippetType = "autosnippet" },
-		fmta([[\quad\text{<>}]], {
+		fmta([[\quad\text{<>} ]], {
 			i(1),
 		})
 	),
 	s(
 		{ trig = "qdT", snippetType = "autosnippet" },
-		fmta([[\quad\text{<>}\quad]], {
+		fmta([[\quad\text{<>}\quad ]], {
 			i(1),
 		})
 	),

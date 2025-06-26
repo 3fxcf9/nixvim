@@ -60,10 +60,10 @@
 
         bashls.enable = true;
 
-        ocamllsp = {
-          enable = true;
-          package = pkgs.ocamlPackages.ocaml-lsp;
-        };
+        # ocamllsp = {
+        #   enable = true;
+        #   package = pkgs.ocamlPackages.ocaml-lsp;
+        # };
       };
 
       keymaps = {
@@ -138,6 +138,20 @@
       border = _border
     }
   '';
+
+  # # v-analyzer
+  # extraConfigLuaPost = ''
+  #   vim.api.nvim_create_autocmd("FileType", {
+  #     pattern = "v",
+  #     callback = function()
+  #       vim.lsp.start({
+  #         name = "v_analyzer",
+  #         cmd = {"v-analyzer"},
+  #         root_dir = vim.fs.find({".git"}, { upward = true, type = "directory" })[1] or vim.loop.cwd(),
+  #       })
+  #     end,
+  #   })
+  # '';
 
   keymaps = [
     {

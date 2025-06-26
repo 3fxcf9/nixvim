@@ -68,6 +68,7 @@
           end
         '';
       formatters_by_ft = {
+        v = ["vfmt"];
         html = ["prettierd"];
         css = ["prettierd"];
         javascript = ["prettierd"];
@@ -82,11 +83,17 @@
         json = ["jq"];
         rust = ["rustfmt"];
         tex = ["latexindent"];
+        ocaml = ["ocamlformat "];
         "_" = ["trim_whitespace"];
       };
 
       # TODO: Remove ASAP (install in shells instead)
       formatters = {
+        vfmt = {
+          command = "v";
+          args = ["fmt" "-"];
+          stdin = true;
+        };
         latexindent = {prepend_args = ["-l" "-g" "/dev/null"];}; # Disable output to a log file
         alejandra = {command = "${lib.getExe pkgs.alejandra}";};
         jq = {command = "${lib.getExe pkgs.jq}";};
@@ -96,6 +103,7 @@
         shfmt = {command = "${lib.getExe pkgs.shfmt}";};
         shellharden = {command = "${lib.getExe pkgs.shellharden}";};
         cbfmt = {command = "${lib.getExe pkgs.cbfmt}";};
+        ocamlformat = {command = "${lib.getExe pkgs.ocamlformat}";};
       };
     };
   };

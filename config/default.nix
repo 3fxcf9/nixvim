@@ -28,7 +28,8 @@
     ./plugins/ui/which-key.nix
     ./plugins/ui/zen-mode.nix
     ./plugins/ui/telescope.nix
-    ./plugins/ui/notify.nix
+    ./plugins/ui/toggleterm.nix
+    # ./plugins/ui/notify.nix
 
     # Git
     ./plugins/git/gitsigns.nix
@@ -37,13 +38,15 @@
     ./plugins/illuminate.nix
     ./plugins/colorizer.nix
     ./plugins/comment.nix
+    ./plugins/nvim-surround.nix
     ./plugins/todo-comments.nix
-    ./plugins/markview.nix
+    # ./plugins/markview.nix
     ./plugins/vimtex.nix
     # ./plugins/hardtime.nix
     ./plugins/precognition.nix
     ./plugins/web-devicons.nix
     ./plugins/autopairs.nix
+    ./plugins/substitute.nix
     # ./plugins/anki.nix
   ];
   luaLoader.enable = true;

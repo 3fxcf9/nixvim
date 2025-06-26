@@ -3,6 +3,7 @@
     enable = true;
     openOnSetup = true;
     syncRootWithCwd = true;
+    updateFocusedFile.enable = true;
     renderer.indentMarkers.enable = true;
     view = {
       width = 35;
@@ -10,6 +11,13 @@
       side = "right";
     };
     git.ignore = false;
+    renderer.specialFiles = [
+      "Cargo.toml"
+      "Makefile"
+      "README.md"
+      "readme.md"
+      "v.mod"
+    ];
   };
 
   keymaps = [

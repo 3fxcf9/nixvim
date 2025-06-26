@@ -26,9 +26,14 @@
     };
   };
 
-  highlightOverride.LspInlayHint = {
-    bg = "NONE";
-    link = "Comment";
+  highlightOverride = {
+    LspInlayHint = {
+      bg = "NONE";
+      link = "Comment";
+    };
+    NvimTreeSpecialFile = {
+      bold = true;
+    };
   };
 
   # Highlight and remove extra white spaces
